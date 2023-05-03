@@ -6,6 +6,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from './Home/Home';
+import Login from './Login/Login/Login';
+import Registration from './Login/Registration/Registration';
 
 const router = createBrowserRouter([
   {
@@ -13,11 +15,20 @@ const router = createBrowserRouter([
     element: <Home></Home>,
     children: [
       {
-        path: "contacts/:contactId",
+        path: "/",
         element: <div></div>,
       },
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/register',
+        element: <Registration></Registration>
+      }
     ],
   },
+  
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

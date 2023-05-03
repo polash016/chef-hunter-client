@@ -1,10 +1,28 @@
 import React from 'react';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const NavigationBar = () => {
     return (
-        <div>
+        <Container className="mb-4">
+    <Navbar collapseOnSelect expand="lg" bg="secondary-subtle">
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="mx-auto">
             
-        </div>
+            <Nav.Link href="/category/0">Home</Nav.Link>
+            <Nav.Link href="#pricing">About</Nav.Link>
+            <Nav.Link href="#pricing">Career</Nav.Link>
+          </Nav>
+          <Nav>
+            {/* {user && <FaUserCircle></FaUserCircle>} */}
+          {/* {user ? <Link onClick={handleLogOut} to='/login'><Button variant="secondary">Logout</Button></Link>:
+          <Link to='/login'><Button variant="secondary">Login</Button></Link>} */}
+          <Link to='/login'><Button variant="secondary">Login</Button></Link>
+          </Nav>
+        </Navbar.Collapse>
+    </Navbar>
+      </Container>
     );
 };
 
