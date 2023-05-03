@@ -8,6 +8,7 @@ import {
 import Home from './Home/Home';
 import Login from './Login/Login/Login';
 import Registration from './Login/Registration/Registration';
+import ChefCards from './ChefCard/ChefCards';
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <div></div>,
+        element: <ChefCards></ChefCards>,
+        loader: () => fetch('/data.json')
       },
       {
         path: '/login',
