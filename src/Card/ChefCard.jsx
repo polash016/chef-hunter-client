@@ -2,10 +2,11 @@
 /* eslint-disable react/jsx-key */
 import React from 'react';
 import { Card, Button, Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const ChefCard = ({card}) => {
   console.log(card)
-  const {chef_name, number_of_recipes, years_of_experience, likes } = card
+  const {id,chef_name, number_of_recipes, years_of_experience, likes } = card
     return (
       <Col className='mt-4'>
         <Card>
@@ -21,6 +22,7 @@ const ChefCard = ({card}) => {
             <Card.Text>
               <span className='fw-semibold'>Likes:</span> {likes}
             </Card.Text>
+            <Link to={`/chef/${id}`}><Button>See More</Button></Link>
           </Card.Body>
         </Card>
       </Col>

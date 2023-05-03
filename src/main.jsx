@@ -9,6 +9,7 @@ import Home from './Home/Home';
 import Login from './Login/Login/Login';
 import Registration from './Login/Registration/Registration';
 import ChefCards from './ChefCard/ChefCards';
+import ChefDetails from './ChefDetails/ChefDetails';
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <ChefCards></ChefCards>,
-        loader: () => fetch('/data.json')
+        loader: () => fetch('http://localhost:5000/chef')
+      },
+      {
+        path: '/chef/:id',
+        element:<ChefDetails></ChefDetails>,
+        loader: ({params}) => fetch(`http://localhost:5000/chef/${params.id}`)
       },
       {
         path: '/login',
