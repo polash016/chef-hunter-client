@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-key */
 import React, { useState } from 'react';
-import { Button, Card, CardGroup, Container } from 'react-bootstrap';
+import { Button, Card, CardGroup, Container, ListGroup } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import ChefBanner from '../ChefBanner/ChefBanner';
 import {  FaBookmark, FaRegBookmark, FaRegStar, FaStar } from "react-icons/fa";
@@ -12,7 +12,7 @@ const ChefDetails = () => {
     const [toggle2, setToggle2] = useState(true)
     const [toggle3, setToggle3] = useState(true)
     const chefDetails = useLoaderData()
-    const {bio, chef_name, recipe_1, recipe_2, recipe_3} = chefDetails
+    const {id, bio, chef_name, recipe_1, recipe_2, recipe_3} = chefDetails
     const handleBookmark = () => {
         toast.success('Successfully Added To Fabourites')
         setToggle(false)
@@ -28,26 +28,26 @@ const ChefDetails = () => {
     return (
         <div>          
     <Container>
-        <ChefBanner chefDetails={chefDetails}></ChefBanner>
+        <ChefBanner key={id} chefDetails={chefDetails}></ChefBanner>
           <Card className='text-center ' border="light" style={{ width: 'full' }}>
         <Card.Header className='fw-semibold'>Receipe: {recipe_1.name}</Card.Header>
         <div className='row row-cols-2'>
         <Card.Body>
           <Card.Title>Ingredients</Card.Title>
-          <Card.Text>
+          <ListGroup>
           {
-                recipe_1.ingredients.map(ingrdnt => <li className='mb-2'>{ingrdnt}</li>)
+                recipe_1.ingredients.map(ingrdnt => <ListGroup.Item key={id} className='mb-2'>{ingrdnt}</ListGroup.Item>)
             }
-          </Card.Text>
+          </ListGroup>
         </Card.Body>
         <Card.Body>
           <Card.Title>Cooking Method</Card.Title>
-          <Card.Text>
+          <ListGroup>
             
           {
-                recipe_1.cooking_method.map(ingrdnt => <li className='mb-2'>{ingrdnt}</li>)
+                recipe_1.cooking_method.map(ingrdnt => <ListGroup.Item key={id} className='mb-2'>{ingrdnt}</ListGroup.Item>)
             }
-          </Card.Text>
+          </ListGroup>
         </Card.Body>
         </div>
         <Card.Footer className='mt-2 mb-4 d-flex justify-content-between align-items-center'>
@@ -72,20 +72,20 @@ const ChefDetails = () => {
         <div className='row row-cols-2'>
         <Card.Body>
           <Card.Title>Ingredients</Card.Title>
-          <Card.Text>
+          <ListGroup>
           {
-                recipe_2.ingredients.map(ingrdnt => <li className='mb-2'>{ingrdnt}</li>)
+                recipe_2.ingredients.map(ingrdnt => <ListGroup.Item key={id} className='mb-2'>{ingrdnt}</ListGroup.Item>)
             }
-          </Card.Text>
+          </ListGroup>
         </Card.Body>
         <Card.Body>
           <Card.Title>Cooking Method</Card.Title>
-          <Card.Text>
+          <ListGroup>
             
           {
-                recipe_2.cooking_method.map(ingrdnt => <li className='mb-2'>{ingrdnt}</li>)
+                recipe_2.cooking_method.map(ingrdnt => <ListGroup.Item  key={id} className='mb-2'>{ingrdnt}</ListGroup.Item>)
             }
-          </Card.Text>
+          </ListGroup>
         </Card.Body>
         </div>
         <Card.Footer className='mt-2 mb-4'>
@@ -112,20 +112,20 @@ const ChefDetails = () => {
         <div className='row row-cols-2'>
         <Card.Body>
           <Card.Title>Ingredients</Card.Title>
-          <Card.Text>
+          <ListGroup>
           {
-                recipe_3.ingredients.map(ingrdnt => <li className='mb-2'>{ingrdnt}</li>)
+                recipe_3.ingredients.map(ingrdnt => <ListGroup.Item  key={id} className='mb-2'>{ingrdnt}</ListGroup.Item>)
             }
-          </Card.Text>
+          </ListGroup>
         </Card.Body>
         <Card.Body>
           <Card.Title>Cooking Method</Card.Title>
-          <Card.Text>
+          <ListGroup>
             
           {
-                recipe_3.cooking_method.map(ingrdnt => <li className='mb-2'>{ingrdnt}</li>)
+                recipe_3.cooking_method.map(ingrdnt => <ListGroup.Item  key={id} className='mb-2'>{ingrdnt}</ListGroup.Item>)
             }
-          </Card.Text>
+          </ListGroup>
         </Card.Body>
         </div>
         <Card.Footer className='mt-2 mb-2'>

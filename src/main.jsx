@@ -5,14 +5,14 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Home from './Home/Home';
-import Login from './Login/Login/Login';
-import Registration from './Login/Registration/Registration';
-import ChefCards from './ChefCard/ChefCards';
-import ChefDetails from './ChefDetails/ChefDetails';
+import Home from './components/Home/Home';
+import ChefCards from './components/ChefCard/ChefCards';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import ChefDetails from './components/ChefDetails/ChefDetails';
+import Login from './components/Login/Login/Login';
+import Registration from './components/Login/Registration/Registration';
+import Blog from './components/Blog/Blog';
 import AuthProvider from './provider/AuthProvider';
-import PrivateRoute from './PrivateRoute/PrivateRoute';
-import Blog from './Blog/Blog';
 
 const router = createBrowserRouter([
   {

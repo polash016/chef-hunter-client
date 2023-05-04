@@ -2,6 +2,7 @@
 /* eslint-disable react/jsx-key */
 import React from 'react';
 import { Card, Button, Container, Row, Col } from 'react-bootstrap';
+import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 
 const ChefCard = ({card}) => {
@@ -10,7 +11,7 @@ const ChefCard = ({card}) => {
     return (
       <Col className='mt-4'>
         <Card>
-          <Card.Img style={{height: '250px'}} className='w-100' variant="top" src={card.picture} />
+          <LazyLoad><Card.Img style={{height: '250px'}} className='w-100' variant="top" src={card.picture} /></LazyLoad>
           <Card.Body>
             <Card.Title>{chef_name}</Card.Title>
             <Card.Text>

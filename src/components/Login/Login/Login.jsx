@@ -2,7 +2,7 @@
 import React, { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../provider/AuthProvider";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const Login = () => {
     const [success, setSuccess] = useState('')
