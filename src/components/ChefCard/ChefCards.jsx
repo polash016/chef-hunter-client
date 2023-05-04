@@ -11,7 +11,7 @@ const ChefCards = () => {
     return (
         <div>
             <Banner></Banner>
-           <Row className='container mx-auto row row-cols-3 mt-5 mb-4 '>
+           <Row className='container mx-auto row row-cols-3 sm:row-cols-1 mt-5 mb-4 '>
            {
             cards.map(card => <ChefCard key={card.id} card={card}>{card.chef_name}</ChefCard>)
            }
