@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
-import error from '../../../public/error.png'
+import error from '../../../src/image/error.png'
 
 const Error = () => {
     return (

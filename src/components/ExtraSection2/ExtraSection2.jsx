@@ -4,8 +4,13 @@ import './xthree.css'
 const ExtraSection2 = () => {
     return (
         <div>
+            
         <div className="container px-1 px-md-4 py-5 mx-auto">
+        <div className='text-center'>
+                <h3>Progress Bar For Reward Upon Order</h3>
+            </div>
           <div className="card cardthree ">
+          
             <div className="row d-flex justify-content-between px-3 top"></div>
   
             <div className="row d-flex justify-content-center">

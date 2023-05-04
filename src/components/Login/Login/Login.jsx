@@ -1,13 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
 
 const Login = () => {
     const [success, setSuccess] = useState('')
     const [error, setError] = useState('');
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const location = useLocation();
   const { googleLogin, githubLogin, passwordLogin } =
     useContext(AuthContext);
     const from = location.state?.from?.pathname || '/'
@@ -38,6 +39,7 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         setError('')
+        navigate(from, {replace: true})
       })
       .then((error) => {
         setError(error?.message)
@@ -48,6 +50,7 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         setError('')
+        navigate(from, {replace: true})
       })
       .then((error) => {
         setError(error?.message)

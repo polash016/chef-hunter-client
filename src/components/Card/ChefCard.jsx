@@ -6,7 +6,6 @@ import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 
 const ChefCard = ({card}) => {
-  console.log(card)
   const {id,chef_name, number_of_recipes, years_of_experience, likes } = card
     return (
       <Col className='mt-4'>

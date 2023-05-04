@@ -7,6 +7,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 const PrivateRoute = ({children}) => {
     const {user, loading} = useContext(AuthContext)
     const location = useLocation();
+    console.log(location)
 
     if(loading){
         return <div className='text-center'><Spinner animation="border" variant="danger" /></div>

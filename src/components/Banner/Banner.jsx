@@ -1,6 +1,6 @@
 import React from "react";
 import "./headxtra.css";
-import hero from '../../../public/hero.png'
+import hero from '../../../src/image/hero.png'
 
 const Banner = () => {
   return (
