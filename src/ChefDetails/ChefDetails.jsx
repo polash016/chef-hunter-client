@@ -1,14 +1,30 @@
 /* eslint-disable react/jsx-key */
-import React from 'react';
-import { Card, CardGroup, Container } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Button, Card, CardGroup, Container } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import ChefBanner from '../ChefBanner/ChefBanner';
-import {  FaRegBookmark, FaRegStar, FaStar } from "react-icons/fa";
+import {  FaBookmark, FaRegBookmark, FaRegStar, FaStar } from "react-icons/fa";
 import Rating from 'react-rating';
+import { toast } from 'react-hot-toast';
 
 const ChefDetails = () => {
+    const [toggle, setToggle] = useState(true)
+    const [toggle2, setToggle2] = useState(true)
+    const [toggle3, setToggle3] = useState(true)
     const chefDetails = useLoaderData()
     const {bio, chef_name, recipe_1, recipe_2, recipe_3} = chefDetails
+    const handleBookmark = () => {
+        toast.success('Successfully Added To Fabourites')
+        setToggle(false)
+    }
+    const handleBookmark2 = () => {
+        toast.success('Successfully Added To Fabourites')
+        setToggle2(false)
+    }
+    const handleBookmark3 = () => {
+        toast.success('Successfully Added To Fabourites')
+        setToggle3(false)
+    }
     return (
         <div>          
     <Container>
@@ -47,7 +63,7 @@ const ChefDetails = () => {
 {recipe_1.rating}
           </div>
           <div>
-            <FaRegBookmark></FaRegBookmark>
+          <button className='border-0' disabled={!toggle} onClick={handleBookmark}> <FaRegBookmark></FaRegBookmark></button>
           </div>
         </Card.Footer>
       </Card>
@@ -86,7 +102,7 @@ const ChefDetails = () => {
 {recipe_2.rating}
           </div>
           <div>
-            <FaRegBookmark></FaRegBookmark>
+          <button className='border-0' disabled={!toggle2} onClick={handleBookmark2}> <FaRegBookmark></FaRegBookmark></button>
           </div>
         </Card.Footer>
         </Card.Footer>
@@ -126,7 +142,7 @@ const ChefDetails = () => {
 {recipe_3.rating}
           </div>
           <div>
-            <FaRegBookmark></FaRegBookmark>
+          <button className='border-0' disabled={!toggle3} onClick={handleBookmark3}> <FaRegBookmark></FaRegBookmark></button>
           </div>
         </Card.Footer>
         </Card.Footer>
