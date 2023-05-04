@@ -6,11 +6,12 @@ import { AuthContext } from '../../provider/AuthProvider';
 const Registration = () => {
     const [success, setSuccess] = useState('');
     const [error, setError] = useState('');
-    const [accepted, setAccepted] = useState(true)
+    const [accepted, setAccepted] = useState(false)
     const {register} = useContext(AuthContext)
     const handleRegistration = (event) => {
         event.preventDefault();
         setSuccess('');
+        setError('')
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
@@ -23,11 +24,12 @@ const Registration = () => {
             form.reset()
             setSuccess('User Created Successfully')
         })
-        .then(error => {
-            console.log(error)
+        .catch(error => {
+            console.log(error.message)
             setError(error.message)
             setSuccess('')
         })
+        form.reset()
         
 
     }
@@ -50,7 +52,7 @@ const Registration = () => {
           <Form.Label>Photo URL</Form.Label>
           <Form.Control
             type="text"
-            name="photo"
+            name="photoURL"
             placeholder="Photo URL"
             required
           />
@@ -82,6 +84,8 @@ const Registration = () => {
             label="Accept Terms & Conditions"
           />
         </Form.Group>
+        <Form.Text className="text-danger">{success}</Form.Text>
+        <Form.Text className="text-success">{error}</Form.Text> <br />
         <Button variant="primary" disabled={!accepted} type="submit">
           Register
         </Button>
@@ -89,8 +93,7 @@ const Registration = () => {
         <Form.Text className="text-muted">
           Already Have An Account? <Link to="/login">Login</Link>
         </Form.Text>
-        <Form.Text className="text-danger">{success}</Form.Text>
-        <Form.Text className="text-success">{error}</Form.Text>
+       
       </Form>
     </Container>
     );

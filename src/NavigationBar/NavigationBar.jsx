@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Button, Container, Image, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
@@ -22,9 +22,11 @@ const NavigationBar = () => {
             <Link to='/'>Home</Link>
             <Nav.Link href="#pricing">About</Nav.Link>
             <Nav.Link href="#pricing">Career</Nav.Link>
+            
           </Nav>
           <Nav>
             {/* {user && <FaUserCircle></FaUserCircle>} */}
+            {user && <Image className="me-2" style={{height:'40px'}} title={user?.displayName} src={user.photoURL} roundedCircle />}
             {user ? <Link onClick={handleLogOut} to='/login'><Button variant="secondary">Logout</Button></Link>:
           <Link to='/login'><Button variant="secondary">Login</Button></Link>}
           </Nav>

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   GithubAuthProvider,
   GoogleAuthProvider,
@@ -12,13 +12,16 @@ import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
     const [success, setSuccess] = useState('')
-    const [error, setError] = useState('')
+    const [error, setError] = useState('');
+    const navigate = useNavigate()
   const { googleLogin, githubLogin, passwordLogin } =
     useContext(AuthContext);
+    const from = location.state?.from?.pathname || '/'
 
   const handleLogin = (event) => {
     event.preventDefault();
     setSuccess('')
+    setError('')
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
@@ -27,6 +30,10 @@ const Login = () => {
         console.log(result)
         setSuccess('Login Successfull')
         setError('')
+        navigate(from, {replace: true})
+    })
+    .then(error => {
+        setError(error?.message)
     })
 
     form.reset()
@@ -39,8 +46,7 @@ const Login = () => {
         setError('')
       })
       .then((error) => {
-        console.log(error);
-        setError(error.message)
+        setError(error?.message)
       });
   };
   const handleGoogleLogin = () => {
@@ -50,8 +56,7 @@ const Login = () => {
         setError('')
       })
       .then((error) => {
-        console.log(error);
-        setError(error.message)
+        setError(error?.message)
       });
   };
   return (
@@ -99,8 +104,8 @@ const Login = () => {
       <Form.Text className="text-muted">
         Don't Have An Account? <Link to="/register">Register</Link>
       </Form.Text>
-      <Form.Text className="text-danger"></Form.Text>
-      <Form.Text className="text-success"></Form.Text>
+      <Form.Text className="text-danger">{success}</Form.Text>
+      <Form.Text className="text-success">{error}</Form.Text>
     </Container>
   );
 };
