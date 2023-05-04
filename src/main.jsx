@@ -13,6 +13,7 @@ import Login from './components/Login/Login/Login';
 import Registration from './components/Login/Registration/Registration';
 import Blog from './components/Blog/Blog';
 import AuthProvider from './provider/AuthProvider';
+import Error from './components/Error/Error';
 
 const router = createBrowserRouter([
   {
@@ -22,12 +23,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <ChefCards></ChefCards>,
-        loader: () => fetch('http://localhost:5000/chef')
+        loader: () => fetch('https://a10-chef-hunter-server.vercel.app/chef')
       },
       {
         path: '/chef/:id',
         element:<PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/chef/${params.id}`)
+        loader: ({params}) => fetch(`https://a10-chef-hunter-server.vercel.app/chef/${params.id}`)
       },
       {
         path: '/login',
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       }
     ],
   },
+  {
+    path: '*',
+    element: <Error></Error>
+  }
   
 ]);
 

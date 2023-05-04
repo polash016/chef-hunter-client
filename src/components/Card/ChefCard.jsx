@@ -23,7 +23,7 @@ const ChefCard = ({card}) => {
             <Card.Text>
               <span className='fw-semibold'>Likes:</span> {likes}
             </Card.Text>
-            <Link to={`/chef/${id}`}><Button>See More</Button></Link>
+            <Link to={`/chef/${id}`}><Button>View Receipe</Button></Link>
           </Card.Body>
         </Card>
       </Col>

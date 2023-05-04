@@ -3,6 +3,7 @@ import { Button, Container, Image, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ActiveLink from "../ActiveLink/ActiveLink";
 import { AuthContext } from "../../provider/AuthProvider";
+import { TbChefHat } from "react-icons/tb"
 
 const NavigationBar = () => {
     const {user, logOut} = useContext(AuthContext)
@@ -19,7 +20,7 @@ const NavigationBar = () => {
         
       <Navbar collapseOnSelect expand="lg" bg="secondary-subtle">
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Brand className="fw-bold" href="#">Spice Route</Navbar.Brand>
+        <Navbar.Brand className="fw-bold" href="/"><TbChefHat /> Spice Route</Navbar.Brand>
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mx-auto">
             <ActiveLink to="/">Home</ActiveLink>
