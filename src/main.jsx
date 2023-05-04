@@ -12,6 +12,7 @@ import ChefCards from './ChefCard/ChefCards';
 import ChefDetails from './ChefDetails/ChefDetails';
 import AuthProvider from './provider/AuthProvider';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
+import Blog from './Blog/Blog';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Registration></Registration>
+      },
+      {
+        path: '/blog',
+        element: <Blog></Blog>
       }
     ],
   },

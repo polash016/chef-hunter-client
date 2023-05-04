@@ -3,6 +3,8 @@ import React from 'react';
 import { Card, CardGroup, Container } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import ChefBanner from '../ChefBanner/ChefBanner';
+import {  FaRegBookmark, FaRegStar, FaStar } from "react-icons/fa";
+import Rating from 'react-rating';
 
 const ChefDetails = () => {
     const chefDetails = useLoaderData()
@@ -32,6 +34,22 @@ const ChefDetails = () => {
           </Card.Text>
         </Card.Body>
         </div>
+        <Card.Footer className='mt-2 mb-4 d-flex justify-content-between align-items-center'>
+          <div className=''>
+          <Rating 
+        className=" me-2"
+  placeholderRating={recipe_1.rating}
+  emptySymbol={<FaRegStar />}
+  readonly
+  placeholderSymbol={<FaStar className="text-warning" />}
+  fullSymbol={<FaStar />}
+/>
+{recipe_1.rating}
+          </div>
+          <div>
+            <FaRegBookmark></FaRegBookmark>
+          </div>
+        </Card.Footer>
       </Card>
           <Card className='text-center ' border="light" style={{ width: 'full' }}>
         <Card.Header className='fw-semibold'>Receipe: {recipe_1.name}</Card.Header>
@@ -54,6 +72,24 @@ const ChefDetails = () => {
           </Card.Text>
         </Card.Body>
         </div>
+        <Card.Footer className='mt-2 mb-4'>
+        <Card.Footer className='mt-2 mb-4 d-flex justify-content-between align-items-center'>
+          <div className=''>
+          <Rating 
+        className=" me-2"
+  placeholderRating={recipe_2.rating}
+  emptySymbol={<FaRegStar />}
+  readonly
+  placeholderSymbol={<FaStar className="text-warning" />}
+  fullSymbol={<FaStar />}
+/>
+{recipe_2.rating}
+          </div>
+          <div>
+            <FaRegBookmark></FaRegBookmark>
+          </div>
+        </Card.Footer>
+        </Card.Footer>
       </Card>
           <Card className='text-center ' border="light" style={{ width: 'full' }}>
         <Card.Header className='fw-semibold'>Receipe: {recipe_1.name}</Card.Header>
@@ -76,7 +112,26 @@ const ChefDetails = () => {
           </Card.Text>
         </Card.Body>
         </div>
+        <Card.Footer className='mt-2 mb-2'>
+        <Card.Footer className='mt-2 mb-4 d-flex justify-content-between align-items-center'>
+          <div className=''>
+          <Rating 
+        className=" me-2"
+  placeholderRating={recipe_3.rating}
+  emptySymbol={<FaRegStar />}
+  readonly
+  placeholderSymbol={<FaStar className="text-warning" />}
+  fullSymbol={<FaStar />}
+/>
+{recipe_3.rating}
+          </div>
+          <div>
+            <FaRegBookmark></FaRegBookmark>
+          </div>
+        </Card.Footer>
+        </Card.Footer>
       </Card>
+      
     </Container>
         </div>
     );
