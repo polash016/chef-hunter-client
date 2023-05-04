@@ -1,13 +1,7 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  GithubAuthProvider,
-  GoogleAuthProvider,
-  getAuth,
-  signInWithPopup,
-} from "firebase/auth";
-import app from "../../../firebase.config";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
