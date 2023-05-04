@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const NavigationBar = () => {
+    const {user, logOut} = useContext(AuthContext)
+
+    const handleLogOut = () => {
+        logOut()
+        .then()
+        .then(error => {
+            console.log(error)
+        })
+    }
   return (
     <Container className="mb-4">
       <Navbar collapseOnSelect expand="lg" bg="secondary-subtle">
@@ -15,11 +25,8 @@ const NavigationBar = () => {
           </Nav>
           <Nav>
             {/* {user && <FaUserCircle></FaUserCircle>} */}
-            {/* {user ? <Link onClick={handleLogOut} to='/login'><Button variant="secondary">Logout</Button></Link>:
-          <Link to='/login'><Button variant="secondary">Login</Button></Link>} */}
-            <Link to="/login">
-              <Button variant="secondary">Login</Button>
-            </Link>
+            {user ? <Link onClick={handleLogOut} to='/login'><Button variant="secondary">Logout</Button></Link>:
+          <Link to='/login'><Button variant="secondary">Login</Button></Link>}
           </Nav>
         </Navbar.Collapse>
       </Navbar>
