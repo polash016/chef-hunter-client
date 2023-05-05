@@ -24,7 +24,7 @@ const Banner = () => {
                 </p>
                 <a
                   href=""
-                  className="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft"
+                  className="btn btn-danger py-sm-3 px-sm-5 me-3 animated slideInLeft"
                 >
                   Book A Table
                 </a>

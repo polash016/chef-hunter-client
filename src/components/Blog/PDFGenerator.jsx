@@ -100,7 +100,7 @@ const PdfGenerator = () => {
     <div>
       <PDFDownloadLink document={<MyDocument />} fileName="document.pdf">
         {({ loading }) =>
-          loading ? "Loading document..." : <Button>Download Pdf</Button>
+          loading ? "Loading document..." : <Button className="btn-danger">Download Pdf</Button>
         }
       </PDFDownloadLink>
     </div>

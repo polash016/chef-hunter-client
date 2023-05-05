@@ -4,6 +4,7 @@ import food1 from "../../../src/image/food1.jpg"
 import food2 from "../../../src/image/food2.jpg"
 import food3 from "../../../src/image/food3.jpg"
 import food4 from "../../../src/image/food4.jpg"
+import { Button } from "react-bootstrap";
 
 const ExtraSection2 = () => {
   return (
@@ -41,7 +42,7 @@ const ExtraSection2 = () => {
                   available, but the majority have suffered alteration in some
                   form, by injected humour, or randomised words.
                 </p>
-                <a href="">Read More</a>
+                <Button className="btn-danger" >Read More</Button>
               </div>
             </div>
           </div>

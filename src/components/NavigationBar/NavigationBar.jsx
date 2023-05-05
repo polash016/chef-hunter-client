@@ -30,8 +30,8 @@ const NavigationBar = () => {
           </Nav>
           <Nav>
             {user && <Image className="me-2" style={{height:'40px'}} title={user?.displayName} src={user.photoURL} roundedCircle />}
-            {user ? <Link onClick={handleLogOut} to='/login'><Button variant="secondary">Logout</Button></Link>:
-          <Link to='/login'><Button variant="secondary">Login</Button></Link>}
+            {user ? <Link onClick={handleLogOut} to='/login'><Button variant="danger">Logout</Button></Link>:
+          <Link to='/login'><Button variant="danger">Login</Button></Link>}
           </Nav>
         </Navbar.Collapse>
       </Navbar>
