@@ -7,8 +7,7 @@ import food4 from "../../../src/image/food4.jpg"
 
 const ExtraSection2 = () => {
   return (
-    <div>
-      <section className="dish_section layout_padding">
+      <section className="dish_section layout_padding mb-4">
         <div className="container">
           <div className="row">
             <div className="col-md-6">
@@ -48,7 +47,6 @@ const ExtraSection2 = () => {
           </div>
         </div>
       </section>
-    </div>
   );
 };
 

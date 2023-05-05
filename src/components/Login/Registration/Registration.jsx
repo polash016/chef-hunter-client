@@ -15,6 +15,10 @@ const Registration = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+        if(password.length < 6){
+          setError('Password Need To Be More Than 6 Characters')
+          return
+        }
 
         register(email, password)
         .then(result => {

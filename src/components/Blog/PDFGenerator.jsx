@@ -1,27 +1,52 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
-import PdfGenerator from "./PDFGenerator";
+import {
+  PDFDownloadLink,
+  Document,
+  Page,
+  Text,
+  StyleSheet,
+} from "@react-pdf/renderer";
+import { Button } from "react-bootstrap";
 
-const Blog = () => {
-  return (
-    <div className="text-center">
-      <div>
-        <h2>Differences Between Uncontrolled and Controlled components</h2>
-        <p>
+const PdfGenerator = () => {
+  const styles = StyleSheet.create({
+    page: {
+      fontFamily: "Helvetica",
+      fontSize: 12,
+      paddingTop: 35,
+      paddingLeft: 35,
+      paddingRight: 35,
+      paddingBottom: 40,
+    },
+    heading: {
+      fontSize: 16,
+      marginBottom: 10,
+      fontWeight: "bold",
+    },
+    content: {
+      fontSize: 8,
+      marginBottom: 6,
+    },
+  });
+
+  const MyDocument = () => (
+    <Document>
+      <Page size="A4" style={styles.page}>
+        <Text style={styles.heading}>
+          Differences Between Uncontrolled and Controlled Components
+        </Text>
+        <Text style={styles.content}>
           The main difference between controlled and uncontrolled components is
           the way they handle state management and updates. Controlled
-          components rely on React to manage their state, while uncontrolled
-          components manage their own state internally through the browser DOM.
-          Controlled components are typically used for more complex forms that
-          require validation or dynamic updates, while uncontrolled components
-          are useful for simpler forms or when integrating with non-React code.
-          The value of controlled component is always controlled by the parent
-          component and passed as props to the child component.
-        </p>
-      </div>
-      <div>
-        <h2>How to validate React props using PropTypes</h2>
-        <p>
+          components have their state managed by React and require explicit
+          handling of user input through event handlers, while uncontrolled
+          components allow the form data to be handled by the DOM itself.
+        </Text>
+        <Text style={styles.heading}>
+          How to validate React props using PropTypes
+        </Text>
+        <Text style={styles.content}>
           In React, We can use PropTypes to validate the props passed to a
           component. PropTypes is a built-in feature of React that allows us to
           define the data types and other requirements for the props that a
@@ -32,11 +57,11 @@ const Blog = () => {
           development mode to catch any prop type errors. Also, PropTypes is not
           included in React 17 by default, so we will need to install and import
           it separately.
-        </p>
-      </div>
-      <div>
-        <h2>Difference between nodejs and express js</h2>
-        <p>
+        </Text>
+        <Text style={styles.heading}>
+          Difference between nodejs and express js
+        </Text>
+        <Text style={styles.content}>
           Node.js and Express.js are both server-side JavaScript frameworks that
           allow developers to build web applications using JavaScript. Node.js
           is a runtime environment for executing JavaScript code, while
@@ -50,11 +75,11 @@ const Blog = () => {
           such as web servers and command-line tools. Express.js provides a
           higher-level abstraction over Node.js, making it easier to build web
           applications with features such as routing, middleware, and templates.
-        </p>
-      </div>
-      <div>
-        <h2>What is a custom hook, and why will you create a custom hook?</h2>
-        <p>
+        </Text>
+        <Text style={styles.heading}>
+          What is a custom hook, and why will you create a custom hook?
+        </Text>
+        <Text style={styles.content}>
           A Custom Hook in React is function that allows us to extract and reuse
           component logic. It helps us to share function between components
           without repeating code. It makes our code more efficient and also
@@ -66,12 +91,20 @@ const Blog = () => {
           to handle the API calls and data fetching logic. Then, you can use
           that custom hook in all the components that need to perform data
           fetching, without repeating the same code over and over again.
-        </p>
-      </div>
+        </Text>
+      </Page>
+    </Document>
+  );
 
-      <PdfGenerator></PdfGenerator>
+  return (
+    <div>
+      <PDFDownloadLink document={<MyDocument />} fileName="document.pdf">
+        {({ loading }) =>
+          loading ? "Loading document..." : <Button>Download Pdf</Button>
+        }
+      </PDFDownloadLink>
     </div>
   );
 };
 
-export default Blog;
+export default PdfGenerator;
