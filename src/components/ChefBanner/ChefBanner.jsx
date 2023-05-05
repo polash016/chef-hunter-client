@@ -4,9 +4,9 @@ import React from 'react';
 const ChefBanner = ({chefDetails}) => {
     const {chef_name, picture, bio, number_of_recipes, likes, years_of_experience} = chefDetails
     return (
-        <div className='row row-cols-2 mb-4'>
+        <div className='d-flex gap-4 align-items-center  mb-4'>
           <div>
-            <img style={{height: '400px', width: '600px'}} src={picture} alt="" />
+            <img style={{height: '400px', width: '500px'}} src={picture} alt="" />
             </div>
             <div>
                 <h3>Name: {chef_name}</h3>

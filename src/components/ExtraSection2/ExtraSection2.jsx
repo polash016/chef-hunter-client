@@ -1,32 +1,55 @@
-import React from 'react';
-import './xthree.css'
+import React from "react";
+import "./ExtraSection2.css";
+import food1 from "../../../src/image/food1.jpg"
+import food2 from "../../../src/image/food2.jpg"
+import food3 from "../../../src/image/food3.jpg"
+import food4 from "../../../src/image/food4.jpg"
 
 const ExtraSection2 = () => {
-    return (
-        <div>
-            
-        <div className="container px-1 px-md-4 py-5 mx-auto">
-        <div className='text-center'>
-                <h3>Progress Bar For Reward Upon Order</h3>
+  return (
+    <div>
+      <section className="dish_section layout_padding">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6">
+              <div className="dish_container">
+                <div className="box">
+                  <img src={food1} alt="" />
+                </div>
+                <div className="box">
+                  <img src={food2} alt="" />
+                </div>
+                <div className="box">
+                  <img src={food3} alt="" />
+                </div>
+                <div className="box">
+                  <img src={food4} alt="" />
+                </div>
+              </div>
             </div>
-          <div className="card cardthree ">
-          
-            <div className="row d-flex justify-content-between px-3 top"></div>
-  
-            <div className="row d-flex justify-content-center">
-              <div className="col-12">
-                <ul id="progressbar" className="text-center">
-                  <li className="active step0"></li>
-                  <li className="active step0"></li>
-                  <li className="active step0"></li>
-                  <li className="step0"></li>
-                </ul>
+            <div className="col-md-6">
+              <div className="detail-box">
+                <div className="heading_container">
+                  <hr />
+                  <h2>
+                    Our <br />
+                    Food <br />
+                    dishes
+                  </h2>
+                </div>
+                <p>
+                  There are many variations of passages of Lorem Ipsum
+                  available, but the majority have suffered alteration in some
+                  form, by injected humour, or randomised words.
+                </p>
+                <a href="">Read More</a>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+      </section>
+    </div>
+  );
 };
 
 export default ExtraSection2;
